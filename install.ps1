@@ -1,5 +1,8 @@
 #!/usr/bin/env pwsh
 
+# What user backup configuration belongs to
+$USER = "GrpeApple"
+
 #Requires -Version 5
 param($path = "$pwd/rustlings")
 
@@ -63,14 +66,14 @@ if ((vercomp $rustVersion $minRustVersion) -eq 2) {
 }
 
 Write-Host "Cloning Rustlings at $path"
-git clone -q https://github.com/GrpeApple/rustlings.git $path
+git clone -q https://github.com/$USER/rustlings.git $path
 if (!($LASTEXITCODE -eq 0)) {
     exit 1
 }
 
 # UseBasicParsing is deprecated, pwsh 6 or above will automatically use it,
 # but anyone running pwsh 5 will have to pass the argument.
-$version = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/rust-lang/rustlings/releases/latest `
+$version = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/$USER/rustlings/releases/latest `
     | ConvertFrom-Json | Select-Object -ExpandProperty tag_name
 
 Write-Host "Checking out version $version..."

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# What user backup configuration belongs to
+USER="GrpeApple"
+
 echo "Let's get you set up with Rustlings!"
 
 echo "Checking requirements..."
@@ -100,11 +103,11 @@ fi
 
 Path=${1:-rustlings/}
 echo "Cloning Rustlings at $Path..."
-git clone -q https://github.com/GrpeApple/rustlings $Path
+git clone -q https://github.com/${USER}/rustlings $Path
 
 cd $Path
 
-Version=$(curl -s https://api.github.com/repos/rust-lang/rustlings/releases/latest | ${PY} -c "import json,sys;obj=json.load(sys.stdin);print(obj['tag_name']);")
+Version=$(curl -s https://api.github.com/repos/${USER}/rustlings/releases/latest | ${PY} -c "import json,sys;obj=json.load(sys.stdin);print(obj['tag_name']);")
 CargoBin="${CARGO_HOME:-$HOME/.cargo}/bin"
 
 if [[ -z ${Version} ]]
