@@ -87,7 +87,7 @@ function vercomp() {
 }
 
 RustVersion=$(rustc --version | cut -d " " -f 2)
-MinRustVersion=1.39
+MinRustVersion=1.31
 vercomp $RustVersion $MinRustVersion
 if [ $? -eq 2 ]
 then
@@ -100,7 +100,7 @@ fi
 
 Path=${1:-rustlings/}
 echo "Cloning Rustlings at $Path..."
-git clone -q https://github.com/rust-lang/rustlings $Path
+git clone -q https://github.com/GrpeApple/rustlings $Path
 
 cd $Path
 
@@ -115,8 +115,8 @@ then
     if [[ -z ${Version}  ]]
     then
         echo "No valid tag version found"
-        echo "Rustlings will be installed using the main branch"
-        Version="main"
+        echo "Rustlings will be installed using the master branch"
+        Version="master"
     else
         Version="tags/${Version}"
     fi
