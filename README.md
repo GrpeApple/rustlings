@@ -2,7 +2,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-76-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# This is my backup configuration.
+# Backup configuration is branch `backup`
 
 # rustlings 🦀❤️
 
