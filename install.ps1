@@ -1,5 +1,6 @@
 #!/usr/bin/env pwsh
 
+# Warning: this script has not been tested.
 # What user backup configuration belongs to
 $USER = "GrpeApple"
 
@@ -93,5 +94,9 @@ if (!$clippy) {
     Write-Host "Installing the 'cargo-clippy' executable..."
     rustup component add clippy
 }
+
+Write-Host "Checking out backup $USER..."
+Set-Location $path
+git checkout -q backup
 
 Write-Host "All done! Run 'rustlings' to get started."

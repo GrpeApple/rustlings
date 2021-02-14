@@ -147,4 +147,7 @@ then
     rustup component add clippy
 fi
 
+echo "Checking out backup ${USER}..."
+git checkout -q backup
+
 echo "All done! Run 'rustlings' to get started."
